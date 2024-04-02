@@ -1,0 +1,17 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-recommended-vue/scss"
+  ],
+  "plugins": ["stylelint-order"],
+  "rules": {
+    "order/properties-alphabetical-order": true,
+    "scss/dollar-variable-pattern": null,
+    "scss/dollar-variable-colon-space-after": "at-least-one-space",
+    "selector-class-pattern": null,
+    "color-hex-length": "long",
+    "color-named": "never",
+    "no-descending-specificity": null,
+    "declaration-block-no-redundant-longhand-properties": null
+  }
+}

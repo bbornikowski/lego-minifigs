@@ -1,0 +1,64 @@
+/* stylelint-disable */
+
+@mixin fontFace($urlPrefix, $family, $fonts) {
+  @if (type-of($fonts) == 'list') {
+    @each $font in $fonts {
+      @font-face {
+        font-display: swap;
+        font-family: $family;
+        font-style: #{(map-get($font, 'style'))};
+        font-weight: #{(map-get($font, 'weight'))};
+        src: url('#{$urlPrefix}#{(map-get($font, 'name'))}.woff') format('woff');
+      }
+    }
+  }
+
+  @else {
+    @font-face {
+      font-display: swap;
+      font-family: $family;
+      font-style: #{map-get($fonts, 'style')};
+      font-weight: #{map-get($fonts, 'weight')};
+      src: url('#{$urlPrefix}#{map-get($fonts, 'name')}.woff') format('woff');
+    }
+  }
+}
+
+/* stylelint-enable */
+
+/*
+
+  Sample file name:
+    • OpenSans-Bold.ttf
+    • [prefix][font_weight].ttf
+
+  Mixin args:
+    • path with prefix of files
+    • font family
+    • fonts weights:
+      • name (font_weight in file names)
+      • weight
+      • style
+
+  Example:
+    $Roboto : (
+      (
+        'name'   : 'Regular',
+        'weight' : 400,
+        'style'  : 'normal'
+      ),
+      (
+        'name'   : 'Medium',
+        'weight' : 500,
+        'style'  : 'normal'
+      ),
+      (
+        'name'   : 'Bold',
+        'weight' : 700,
+        'style'  : 'normal'
+      )
+    );
+
+    @include fontFace('../sources/fonts/Roboto/Roboto-', 'Roboto', $Roboto);
+
+*/

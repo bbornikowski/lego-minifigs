@@ -1,0 +1,22 @@
+body {
+  color: $cNGray09;
+  font-family: $fontText;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.16px;
+  line-height: 24px;
+  overflow-x: hidden;
+
+  @include rwd('large-phone') {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  &::before {
+    font-size: 16px;
+
+    @include rwd('large-phone') {
+      font-size: 14px;
+    }
+  }
+}
